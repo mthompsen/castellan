@@ -132,7 +132,9 @@ src/castellan/
 └── cli.py               # Typer CLI wiring it together
 data/mappings/           # the curated check -> control map (committed)
 examples/                # worked example system + real generated output
-tests/                   # 208 tests, all fixture-based (97% coverage)
+tests/                   # 208 tests (97% coverage): fixture-based unit tests,
+                         #   plus integration tests against the real cached NIST
+                         #   content that auto-skip when it is absent (as in CI)
 ```
 
 ## Engineering hygiene
