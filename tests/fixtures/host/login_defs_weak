@@ -1,0 +1,6 @@
+# Weak login.defs fixture: defaults left in place
+MAIL_DIR        /var/mail
+PASS_MAX_DAYS   99999
+PASS_MIN_DAYS   0
+PASS_WARN_AGE   0
+UMASK           022

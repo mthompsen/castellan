@@ -1,0 +1,9 @@
+# Hardened sshd_config fixture
+Port 22
+PermitRootLogin no
+PasswordAuthentication no
+PermitEmptyPasswords no
+ClientAliveInterval 300
+ClientAliveCountMax 3
+MaxAuthTries 4
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com

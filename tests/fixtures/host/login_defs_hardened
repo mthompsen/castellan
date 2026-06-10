@@ -1,0 +1,7 @@
+# Hardened login.defs fixture
+MAIL_DIR        /var/mail
+PASS_MAX_DAYS   365
+PASS_MIN_DAYS   1
+PASS_WARN_AGE   7
+PASS_MIN_LEN    14
+UMASK           027

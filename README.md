@@ -8,8 +8,8 @@ checks, and produces a control-by-control compliance report (Markdown + OSCAL).
 
 > **Status:** under construction — built in phases per [SPEC.md](SPEC.md).
 > Currently implemented: FIPS-199 categorization, 800-53B baseline selection,
-> and SSP generation (markdown + OSCAL). See [examples/output/](examples/output/)
-> for a generated sample.
+> SSP generation (markdown + OSCAL), and a 20-check read-only host scanner.
+> See [examples/output/](examples/output/) for a generated sample.
 
 ## Quickstart
 
@@ -18,6 +18,7 @@ pip install -e .[dev]
 castellan fetch                                  # one-time OSCAL download
 castellan categorize examples/sample_system.yaml
 castellan ssp generate examples/sample_system.yaml -o out/
+castellan scan                                   # on the Linux host to audit
 ```
 
 ## Development

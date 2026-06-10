@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+import sys
 from pathlib import Path
 from typing import Annotated
 
@@ -14,8 +16,23 @@ from rich.table import Table
 from castellan.catalog import load_controls
 from castellan.categorize import categorize as categorize_system
 from castellan.fetch import DEFAULT_DATA_DIR, fetch_oscal_content
-from castellan.models import Control, Impact, SystemDescription, load_system_description
+from castellan.models import (
+    CheckResult,
+    Control,
+    Impact,
+    SystemDescription,
+    load_system_description,
+)
+from castellan.scanner.host import LinuxHost
+from castellan.scanner.runner import run_all
 from castellan.ssp import write_ssp
+
+_OUTCOME_STYLES = {
+    "pass": "[green]pass[/green]",
+    "fail": "[red]fail[/red]",
+    "error": "[yellow]error[/yellow]",
+    "not_applicable": "[dim]n/a[/dim]",
+}
 
 app = typer.Typer(
     name="castellan",
@@ -114,6 +131,60 @@ def ssp_generate(
     )
     console.print(f"  wrote {md_path}")
     console.print(f"  wrote {json_path}")
+
+
+def _render_scan_table(results: list[CheckResult]) -> None:
+    table = Table(title="Castellan host scan")
+    table.add_column("Check")
+    table.add_column("Title")
+    table.add_column("Outcome")
+    table.add_column("Detail", overflow="fold")
+    for result in results:
+        table.add_row(
+            result.check_id,
+            result.title,
+            _OUTCOME_STYLES[result.outcome],
+            result.detail,
+        )
+    console.print(table)
+    counts = dict.fromkeys(_OUTCOME_STYLES, 0)
+    for result in results:
+        counts[result.outcome] += 1
+    console.print(
+        f"[green]{counts['pass']} pass[/green] · [red]{counts['fail']} fail[/red] · "
+        f"[yellow]{counts['error']} error[/yellow] · "
+        f"[dim]{counts['not_applicable']} not applicable[/dim]"
+    )
+
+
+@app.command()
+def scan(
+    out_dir: Annotated[
+        Path | None,
+        typer.Option("--out", help="Also write scan_results.json into this directory."),
+    ] = None,
+    as_json: Annotated[
+        bool, typer.Option("--json", help="Print results as JSON instead of a table.")
+    ] = False,
+) -> None:
+    """Run read-only hardening checks against the local Linux host."""
+    if sys.platform != "linux":
+        err_console.print(
+            "[yellow]Warning:[/yellow] castellan scan inspects Linux host state; on "
+            f"{sys.platform} most checks will be not_applicable."
+        )
+    results = run_all(LinuxHost())
+    payload = json.dumps([result.model_dump() for result in results], indent=2)
+    if as_json:
+        typer.echo(payload)
+    else:
+        _render_scan_table(results)
+    if out_dir is not None:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        results_path = out_dir / "scan_results.json"
+        results_path.write_text(payload + "\n", encoding="utf-8", newline="\n")
+        if not as_json:
+            console.print(f"  wrote {results_path}")
 
 
 if __name__ == "__main__":

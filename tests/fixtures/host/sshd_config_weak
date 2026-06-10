@@ -1,0 +1,13 @@
+# Weak sshd_config fixture: every directive fails its check
+Protocol 2,1
+PermitRootLogin yes
+PasswordAuthentication yes
+PermitEmptyPasswords yes
+ClientAliveInterval 0
+MaxAuthTries 6
+Ciphers aes256-cbc,3des-cbc,arcfour
+
+# Directives inside a Match block must be ignored by the parser
+Match User backup
+    PermitRootLogin no
+    MaxAuthTries 1
