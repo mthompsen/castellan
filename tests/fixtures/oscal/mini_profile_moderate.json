@@ -1,0 +1,19 @@
+{
+  "profile": {
+    "uuid": "00000000-0000-4000-8000-000000000002",
+    "metadata": {
+      "title": "Miniature moderate baseline for tests",
+      "version": "test"
+    },
+    "imports": [
+      {
+        "href": "mini_catalog.json",
+        "include-controls": [
+          {
+            "with-ids": ["ac-1", "ac-2", "ac-2.13", "ac-10", "sc-7"]
+          }
+        ]
+      }
+    ]
+  }
+}
