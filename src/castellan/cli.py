@@ -13,9 +13,10 @@ from pydantic import ValidationError
 from rich.console import Console
 from rich.table import Table
 
-from castellan.catalog import load_controls
+from castellan.catalog import format_control_id, load_controls
 from castellan.categorize import categorize as categorize_system
 from castellan.fetch import DEFAULT_DATA_DIR, fetch_oscal_content
+from castellan.mapping import assess, load_check_control_map
 from castellan.models import (
     CheckResult,
     Control,
@@ -23,8 +24,9 @@ from castellan.models import (
     SystemDescription,
     load_system_description,
 )
+from castellan.report import build_poam_items, summarize, write_report_artifacts
 from castellan.scanner.host import LinuxHost
-from castellan.scanner.runner import run_all
+from castellan.scanner.runner import ALL_CHECKS, run_all
 from castellan.ssp import write_ssp
 
 _OUTCOME_STYLES = {
@@ -41,6 +43,8 @@ app = typer.Typer(
 )
 ssp_app = typer.Typer(help="System Security Plan generation.", no_args_is_help=True)
 app.add_typer(ssp_app, name="ssp")
+checks_app = typer.Typer(help="Scanner check inventory.", no_args_is_help=True)
+app.add_typer(checks_app, name="checks")
 console = Console()
 err_console = Console(stderr=True)
 
@@ -185,6 +189,81 @@ def scan(
         results_path.write_text(payload + "\n", encoding="utf-8", newline="\n")
         if not as_json:
             console.print(f"  wrote {results_path}")
+
+
+def _load_mapping_or_exit() -> dict[str, list[str]]:
+    try:
+        return load_check_control_map()
+    except (FileNotFoundError, ValueError) as exc:
+        err_console.print(f"[red]Error:[/red] cannot load check-control mapping: {exc}")
+        raise typer.Exit(code=1) from None
+
+
+@checks_app.command("list")
+def checks_list() -> None:
+    """List all implemented checks and the 800-53 controls they map to."""
+    mapping = _load_mapping_or_exit()
+    table = Table(title=f"Castellan checks ({len(ALL_CHECKS)})")
+    table.add_column("Check")
+    table.add_column("Title")
+    table.add_column("Mapped controls")
+    for check in ALL_CHECKS:
+        controls = mapping.get(check.check_id)
+        rendered = (
+            ", ".join(format_control_id(c) for c in controls)
+            if controls
+            else "[red]UNMAPPED[/red]"
+        )
+        table.add_row(check.check_id, check.title, rendered)
+    console.print(table)
+
+
+@app.command()
+def report(
+    system_file: Annotated[Path, typer.Argument(help="System description YAML file.")],
+    out_dir: Annotated[
+        Path, typer.Option("--out", "-o", help="Directory to write the artifact set into.")
+    ] = Path("out"),
+) -> None:
+    """Full flow: categorize, select baseline, scan, map, and write all artifacts."""
+    system = _load_system_or_exit(system_file)
+    categorization = categorize_system(system)
+    controls = _load_controls_or_exit(categorization.selected_baseline)
+    mapping = _load_mapping_or_exit()
+
+    if sys.platform != "linux":
+        err_console.print(
+            "[yellow]Warning:[/yellow] the scan step inspects Linux host state; on "
+            f"{sys.platform} most controls will be not_assessed."
+        )
+    results = run_all(LinuxHost())
+    assessments = assess(controls, results, mapping)
+    statuses = {a.control.id: a.status for a in assessments}
+
+    md_path, json_path = write_ssp(system, categorization, controls, out_dir, statuses)
+    paths = write_report_artifacts(system, categorization, assessments, results, out_dir)
+
+    summary = summarize(assessments)
+    table = Table(title=f"{system.name} — compliance summary")
+    table.add_column("Status")
+    table.add_column("Controls", justify="right")
+    table.add_row("implemented", str(summary.counts["implemented"]))
+    table.add_row("partial", str(summary.counts["partial"]))
+    table.add_row("not_implemented", str(summary.counts["not_implemented"]))
+    table.add_row("not_assessed", str(summary.counts["not_assessed"]))
+    console.print(table)
+    if summary.passing_pct is not None:
+        console.print(
+            f"{summary.assessable} of {summary.total} controls technically assessable; "
+            f"[bold]{summary.passing_pct}%[/bold] of those fully passing; "
+            f"{len(build_poam_items(assessments))} POA&M item(s) open."
+        )
+    else:
+        console.print(
+            f"0 of {summary.total} controls technically assessable on this host."
+        )
+    for path in (md_path, json_path, *paths.values()):
+        console.print(f"  wrote {path}")
 
 
 if __name__ == "__main__":

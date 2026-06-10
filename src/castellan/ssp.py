@@ -26,11 +26,10 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from jinja2 import Environment, PackageLoader, select_autoescape
-
 from castellan.catalog import FAMILY_TITLES, format_control_id
 from castellan.fetch import PROFILE_FILENAMES
 from castellan.models import Categorization, Control, ControlStatus, SystemDescription
+from castellan.templating import jinja_env
 
 OSCAL_VERSION = "1.1.2"
 
@@ -41,8 +40,12 @@ _PROFILE_BASE_URL = (
 )
 
 
-def _stable_uuid(*parts: str) -> str:
+def stable_uuid(*parts: str) -> str:
+    """Deterministic UUIDv5 so regenerated documents keep stable identifiers."""
     return str(uuid.uuid5(_UUID_NAMESPACE, "/".join(parts)))
+
+
+_stable_uuid = stable_uuid
 
 
 def _status_for(control: Control, statuses: Mapping[str, ControlStatus]) -> ControlStatus:
@@ -72,14 +75,7 @@ def render_ssp_markdown(
 ) -> str:
     """Render the human-readable SSP skeleton."""
     statuses = statuses or {}
-    env = Environment(
-        loader=PackageLoader("castellan", "templates"),
-        autoescape=select_autoescape(default=False),
-        trim_blocks=True,
-        lstrip_blocks=True,
-    )
-    env.filters["control_id"] = format_control_id
-    template = env.get_template("ssp.md.j2")
+    template = jinja_env().get_template("ssp.md.j2")
     return template.render(
         system=system,
         cat=categorization,

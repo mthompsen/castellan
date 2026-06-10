@@ -1,0 +1,69 @@
+# Curated mapping: scanner check id -> SP 800-53 rev5 control ids it evidences.
+#
+# This is Castellan's hand-built analog of DISA's CCI: each technical check
+# provides evidence for (part of) the listed controls. A passing check never
+# proves a control alone — most controls have organizational parts a host scan
+# cannot see — but a failing check is concrete evidence the control is not
+# fully implemented. Every control id below exists in the rev5 catalog and the
+# moderate baseline (verified against the cached NIST OSCAL content).
+
+# --- SSH ---
+# Disabling direct root login enforces least privilege (AC-6) and forces
+# logins through identified individual accounts (IA-2).
+ssh_permit_root_login: [ac-6, ia-2]
+# Key-only authentication strengthens remote access (AC-17) and user
+# authentication (IA-2) for the primary admin channel.
+ssh_password_authentication: [ac-17, ia-2]
+# Banning SSHv1 and weak ciphers protects transmission confidentiality/
+# integrity (SC-8) using approved cryptography (SC-13).
+ssh_weak_crypto: [sc-8, sc-13]
+# Idle keepalive timeout terminates abandoned sessions (AC-12) and
+# disconnects the underlying network session (SC-10).
+ssh_client_alive_interval: [ac-12, sc-10]
+# Limiting authentication attempts per connection implements unsuccessful
+# logon attempt handling (AC-7).
+ssh_max_auth_tries: [ac-7]
+# Rejecting empty passwords is authenticator management (IA-5).
+ssh_permit_empty_passwords: [ia-5]
+
+# --- Accounts ---
+# Password lifetime, complexity, and expiry-warning policy are all
+# authenticator management (IA-5).
+accounts_password_max_days: [ia-5]
+accounts_password_min_length: [ia-5]
+accounts_password_warn_age: [ia-5]
+# A second UID-0 account breaks individual identifier management (IA-4) and
+# circumvents least privilege (AC-6).
+accounts_no_duplicate_uid0: [ac-6, ia-4]
+# Accounts without passwords defeat authenticator management (IA-5).
+accounts_no_empty_passwords: [ia-5]
+
+# --- Filesystem permissions ---
+# Restrictive modes on the credential store enforce access (AC-3) and protect
+# authentication secrets at rest (SC-28).
+fs_shadow_permissions: [ac-3, sc-28]
+# /etc/passwd integrity is access enforcement (AC-3).
+fs_passwd_permissions: [ac-3]
+# World-writable files in system directories violate access enforcement
+# (AC-3) and secure configuration settings (CM-6).
+fs_no_world_writable: [ac-3, cm-6]
+
+# --- Services ---
+# auditd generates audit records for defined events (AU-2, AU-12).
+svc_auditd_active: [au-2, au-12]
+# A host firewall monitors/controls communications at the boundary (SC-7).
+svc_firewall_active: [sc-7]
+# Restricting crontab visibility enforces access (AC-3) and least
+# privilege over scheduled-job control (AC-6).
+svc_crontab_permissions: [ac-3, ac-6]
+
+# --- Logging ---
+# An active syslog service is the host's audit record generation path (AU-12).
+log_syslog_active: [au-12]
+# Restrictive log file modes protect audit information from unauthorized
+# access and modification (AU-9).
+log_file_permissions: [au-9]
+
+# --- Updates ---
+# Automatic security updates implement flaw remediation (SI-2).
+upd_automatic_updates: [si-2]
