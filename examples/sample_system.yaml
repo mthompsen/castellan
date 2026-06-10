@@ -1,0 +1,27 @@
+# Worked example: a small public-sector benefits enrollment portal.
+# CIA impact levels are derived from the information types below
+# (high-water mark per pillar), so the directly-stated values are omitted.
+name: Eastport Benefits Portal
+system_id: EBP-001
+description: >
+  Public-facing web application where residents apply for municipal benefit
+  programs. A single Ubuntu host runs the web tier and database; staff review
+  applications through an authenticated admin interface.
+owner: City of Eastport — IT Services
+components:
+  - Ubuntu 22.04 web server (nginx + gunicorn)
+  - PostgreSQL 15 database
+  - OpenSSH for administrative access
+information_types:
+  - name: Applicant PII (names, addresses, income records)
+    confidentiality: moderate
+    integrity: moderate
+    availability: low
+  - name: Public program information pages
+    confidentiality: low
+    integrity: moderate
+    availability: low
+  - name: Staff authentication credentials
+    confidentiality: moderate
+    integrity: moderate
+    availability: low
