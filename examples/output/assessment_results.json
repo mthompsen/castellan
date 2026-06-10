@@ -1,0 +1,499 @@
+{
+  "assessment-results": {
+    "uuid": "0f785a08-6310-5f56-9b84-56c9a51b0b43",
+    "metadata": {
+      "title": "Assessment Results: Eastport Benefits Portal",
+      "last-modified": "2026-06-10T04:04:41.250166+00:00",
+      "version": "1.0.0",
+      "oscal-version": "1.1.2"
+    },
+    "import-ap": {
+      "href": "#castellan-automated-scan"
+    },
+    "results": [
+      {
+        "uuid": "bbda8e9b-544e-5c76-ad75-d3c74ee8f880",
+        "title": "Castellan automated host scan",
+        "description": "Read-only CIS/STIG-style hardening checks mapped to SP 800-53 controls via data/mappings/check_control_map.yaml.",
+        "start": "2026-06-10T04:04:41.250166+00:00",
+        "reviewed-controls": {
+          "control-selections": [
+            {
+              "include-controls": [
+                {
+                  "control-id": "ac-3"
+                },
+                {
+                  "control-id": "ac-6"
+                },
+                {
+                  "control-id": "au-2"
+                },
+                {
+                  "control-id": "au-9"
+                },
+                {
+                  "control-id": "au-12"
+                },
+                {
+                  "control-id": "cm-6"
+                },
+                {
+                  "control-id": "ia-4"
+                },
+                {
+                  "control-id": "ia-5"
+                },
+                {
+                  "control-id": "sc-7"
+                },
+                {
+                  "control-id": "sc-28"
+                },
+                {
+                  "control-id": "si-2"
+                }
+              ]
+            }
+          ]
+        },
+        "observations": [
+          {
+            "uuid": "ef772445-efed-5d92-900c-acaf45fa1b7e",
+            "title": "SSH root login is disabled",
+            "description": "[ssh_permit_root_login] outcome=not_applicable: /etc/ssh/sshd_config not present; OpenSSH server not installed",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "eb2d7789-8bb5-53a8-891b-b3c37c2e8fb1",
+            "title": "SSH password authentication is disabled",
+            "description": "[ssh_password_authentication] outcome=not_applicable: /etc/ssh/sshd_config not present; OpenSSH server not installed",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "423c5b7d-bc52-5d29-9c7b-cfef50a98382",
+            "title": "SSH protocol and ciphers exclude weak algorithms",
+            "description": "[ssh_weak_crypto] outcome=not_applicable: /etc/ssh/sshd_config not present; OpenSSH server not installed",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "39848a92-4a31-5d13-946c-6e8487d0641b",
+            "title": "SSH idle session timeout is configured",
+            "description": "[ssh_client_alive_interval] outcome=not_applicable: /etc/ssh/sshd_config not present; OpenSSH server not installed",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "d445ffce-95c2-527b-b846-d2ab4f556bb4",
+            "title": "SSH limits authentication attempts",
+            "description": "[ssh_max_auth_tries] outcome=not_applicable: /etc/ssh/sshd_config not present; OpenSSH server not installed",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "1e3039a7-6a1d-5aa4-ba01-7c114032d314",
+            "title": "SSH rejects empty passwords",
+            "description": "[ssh_permit_empty_passwords] outcome=not_applicable: /etc/ssh/sshd_config not present; OpenSSH server not installed",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "ed3655cd-b6c8-5932-9fbe-196df43cab2e",
+            "title": "Password maximum age is limited",
+            "description": "[accounts_password_max_days] outcome=fail: PASS_MAX_DAYS is 99999; should be 365 or less",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00",
+            "relevant-evidence": [
+              {
+                "description": "PASS_MAX_DAYS 99999"
+              }
+            ]
+          },
+          {
+            "uuid": "078ecb99-6c49-5a64-a602-447ca63956f0",
+            "title": "Password minimum length policy is enforced",
+            "description": "[accounts_password_min_length] outcome=fail: No minimum password length configured (checked /etc/login.defs PASS_MIN_LEN)",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "73135d03-609f-58ff-8379-dc899b8e5cfa",
+            "title": "Users are warned before password expiry",
+            "description": "[accounts_password_warn_age] outcome=pass: Users are warned 7 days before expiry",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00",
+            "relevant-evidence": [
+              {
+                "description": "PASS_WARN_AGE 7"
+              }
+            ]
+          },
+          {
+            "uuid": "364e1454-20b6-55d2-b43a-edd001772fed",
+            "title": "Only root has UID 0",
+            "description": "[accounts_no_duplicate_uid0] outcome=pass: root is the only UID 0 account",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "c382f135-4522-53a7-9d18-0d46dcf64081",
+            "title": "No account has an empty password",
+            "description": "[accounts_no_empty_passwords] outcome=error: /etc/shadow is not readable; run the scan as root",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "36ee5c79-0965-547e-9078-87911376ce96",
+            "title": "/etc/shadow is root-owned and not world-accessible",
+            "description": "[fs_shadow_permissions] outcome=pass: /etc/shadow is root-owned with mode 0o640",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00",
+            "relevant-evidence": [
+              {
+                "description": "mode=0o640 uid=0 gid=42"
+              }
+            ]
+          },
+          {
+            "uuid": "435e9126-2396-57b6-abf8-df8581f734b1",
+            "title": "/etc/passwd is root-owned and not writable by others",
+            "description": "[fs_passwd_permissions] outcome=pass: /etc/passwd is root-owned with mode 0o644",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00",
+            "relevant-evidence": [
+              {
+                "description": "mode=0o644 uid=0 gid=0"
+              }
+            ]
+          },
+          {
+            "uuid": "36d040e4-a9b3-52f5-802c-3eae93260109",
+            "title": "No world-writable files in system directories",
+            "description": "[fs_no_world_writable] outcome=pass: No world-writable files found in /etc, /usr/local/bin, /usr/local/sbin (searched up to 5000 files)",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "7d8f35a9-c356-5606-96f3-1c89331fa56e",
+            "title": "Linux audit daemon (auditd) is running",
+            "description": "[svc_auditd_active] outcome=fail: auditd service is not active; system calls are not being audited",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "e1719164-33db-5853-b408-aba07d07cd4d",
+            "title": "A host firewall is active",
+            "description": "[svc_firewall_active] outcome=fail: No firewall service is active (checked ufw, firewalld, nftables)",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "c4e1071e-817c-5517-bb03-cbd58a5ab577",
+            "title": "/etc/crontab is root-owned and not readable by others",
+            "description": "[svc_crontab_permissions] outcome=fail: /etc/crontab is mode 0o644 exceeds 0o600",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00",
+            "relevant-evidence": [
+              {
+                "description": "mode=0o644 uid=0 gid=0"
+              }
+            ]
+          },
+          {
+            "uuid": "16f20477-b365-58c6-94f6-984969eb4cf2",
+            "title": "A system logging service is running",
+            "description": "[log_syslog_active] outcome=pass: Logging service active: rsyslog, systemd-journald",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00",
+            "relevant-evidence": [
+              {
+                "description": "systemctl is-active rsyslog"
+              }
+            ]
+          },
+          {
+            "uuid": "2144f0e4-c4f7-5a8d-9921-9f3724c8b550",
+            "title": "Sensitive log files are not world-readable",
+            "description": "[log_file_permissions] outcome=pass: Inspected logs are not world-accessible: /var/log/auth.log, /var/log/syslog",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00"
+          },
+          {
+            "uuid": "6e69bd0a-eea8-5387-b5f8-30e78b39c357",
+            "title": "Automatic security updates are configured",
+            "description": "[upd_automatic_updates] outcome=pass: unattended-upgrades is enabled",
+            "methods": [
+              "TEST"
+            ],
+            "collected": "2026-06-10T04:04:41.250166+00:00",
+            "relevant-evidence": [
+              {
+                "description": "/etc/apt/apt.conf.d/20auto-upgrades: APT::Periodic::Unattended-Upgrade \"1\""
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "uuid": "ab027621-4269-5994-af9b-4e86041c1957",
+            "title": "AC-3 \u2014 Access Enforcement",
+            "description": "Status partial based on 4 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-3",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "36ee5c79-0965-547e-9078-87911376ce96"
+              },
+              {
+                "observation-uuid": "435e9126-2396-57b6-abf8-df8581f734b1"
+              },
+              {
+                "observation-uuid": "36d040e4-a9b3-52f5-802c-3eae93260109"
+              },
+              {
+                "observation-uuid": "c4e1071e-817c-5517-bb03-cbd58a5ab577"
+              }
+            ]
+          },
+          {
+            "uuid": "e792a10f-49bc-507d-b0d6-688c64db46c8",
+            "title": "AC-6 \u2014 Least Privilege",
+            "description": "Status partial based on 3 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-6",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "ef772445-efed-5d92-900c-acaf45fa1b7e"
+              },
+              {
+                "observation-uuid": "364e1454-20b6-55d2-b43a-edd001772fed"
+              },
+              {
+                "observation-uuid": "c4e1071e-817c-5517-bb03-cbd58a5ab577"
+              }
+            ]
+          },
+          {
+            "uuid": "769d8921-c7ce-549d-b069-8cab038c1d15",
+            "title": "AU-2 \u2014 Event Logging",
+            "description": "Status not_implemented based on 1 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-2",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "7d8f35a9-c356-5606-96f3-1c89331fa56e"
+              }
+            ]
+          },
+          {
+            "uuid": "18cc07a1-d93f-5354-9275-488f5f8f51ae",
+            "title": "AU-9 \u2014 Protection of Audit Information",
+            "description": "Status implemented based on 1 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-9",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "2144f0e4-c4f7-5a8d-9921-9f3724c8b550"
+              }
+            ]
+          },
+          {
+            "uuid": "202735b9-b267-5cce-b9a8-2a73fcafb822",
+            "title": "AU-12 \u2014 Audit Record Generation",
+            "description": "Status partial based on 2 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-12",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "7d8f35a9-c356-5606-96f3-1c89331fa56e"
+              },
+              {
+                "observation-uuid": "16f20477-b365-58c6-94f6-984969eb4cf2"
+              }
+            ]
+          },
+          {
+            "uuid": "dfdd5fee-48c8-5b9b-893d-9461b2a93609",
+            "title": "CM-6 \u2014 Configuration Settings",
+            "description": "Status implemented based on 1 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cm-6",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "36d040e4-a9b3-52f5-802c-3eae93260109"
+              }
+            ]
+          },
+          {
+            "uuid": "17214d93-926f-5929-89bc-c6bc75ee4d25",
+            "title": "IA-4 \u2014 Identifier Management",
+            "description": "Status implemented based on 1 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ia-4",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "364e1454-20b6-55d2-b43a-edd001772fed"
+              }
+            ]
+          },
+          {
+            "uuid": "a39bdf84-8aec-503e-8798-897bf562315b",
+            "title": "IA-5 \u2014 Authenticator Management",
+            "description": "Status partial based on 5 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ia-5",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "1e3039a7-6a1d-5aa4-ba01-7c114032d314"
+              },
+              {
+                "observation-uuid": "ed3655cd-b6c8-5932-9fbe-196df43cab2e"
+              },
+              {
+                "observation-uuid": "078ecb99-6c49-5a64-a602-447ca63956f0"
+              },
+              {
+                "observation-uuid": "73135d03-609f-58ff-8379-dc899b8e5cfa"
+              },
+              {
+                "observation-uuid": "c382f135-4522-53a7-9d18-0d46dcf64081"
+              }
+            ]
+          },
+          {
+            "uuid": "8695e858-d032-5df8-8b65-05c628d7d4d5",
+            "title": "SC-7 \u2014 Boundary Protection",
+            "description": "Status not_implemented based on 1 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-7",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "e1719164-33db-5853-b408-aba07d07cd4d"
+              }
+            ]
+          },
+          {
+            "uuid": "c515f0ec-f359-5666-a52e-a9817aa59537",
+            "title": "SC-28 \u2014 Protection of Information at Rest",
+            "description": "Status implemented based on 1 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-28",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "36ee5c79-0965-547e-9078-87911376ce96"
+              }
+            ]
+          },
+          {
+            "uuid": "120b0252-ce06-5c14-a6fc-01dd0958e8be",
+            "title": "SI-2 \u2014 Flaw Remediation",
+            "description": "Status implemented based on 1 mapped check(s).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6e69bd0a-eea8-5387-b5f8-30e78b39c357"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

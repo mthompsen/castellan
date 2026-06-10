@@ -3,7 +3,7 @@
     "uuid": "ffb16769-631f-5cf8-9d28-7c695a48044d",
     "metadata": {
       "title": "System Security Plan: Eastport Benefits Portal",
-      "last-modified": "2026-06-10T02:08:21.196385+00:00",
+      "last-modified": "2026-06-10T04:04:41.174710+00:00",
       "version": "1.0.0",
       "oscal-version": "1.1.2",
       "roles": [
@@ -229,7 +229,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "partial"
             }
           ],
           "remarks": "AC-3 (Access Enforcement) \u2014 implementation narrative to be completed by the system owner."
@@ -262,7 +262,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "partial"
             }
           ],
           "remarks": "AC-6 (Least Privilege) \u2014 implementation narrative to be completed by the system owner."
@@ -647,7 +647,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "not-implemented"
             }
           ],
           "remarks": "AU-2 (Event Logging) \u2014 implementation narrative to be completed by the system owner."
@@ -768,7 +768,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "implemented"
             }
           ],
           "remarks": "AU-9 (Protection of Audit Information) \u2014 implementation narrative to be completed by the system owner."
@@ -801,7 +801,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "partial"
             }
           ],
           "remarks": "AU-12 (Audit Record Generation) \u2014 implementation narrative to be completed by the system owner."
@@ -1043,7 +1043,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "implemented"
             }
           ],
           "remarks": "CM-6 (Configuration Settings) \u2014 implementation narrative to be completed by the system owner."
@@ -1516,7 +1516,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "implemented"
             }
           ],
           "remarks": "IA-4 (Identifier Management) \u2014 implementation narrative to be completed by the system owner."
@@ -1538,7 +1538,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "partial"
             }
           ],
           "remarks": "IA-5 (Authenticator Management) \u2014 implementation narrative to be completed by the system owner."
@@ -2737,7 +2737,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "not-implemented"
             }
           ],
           "remarks": "SC-7 (Boundary Protection) \u2014 implementation narrative to be completed by the system owner."
@@ -2935,7 +2935,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "implemented"
             }
           ],
           "remarks": "SC-28 (Protection of Information at Rest) \u2014 implementation narrative to be completed by the system owner."
@@ -2979,7 +2979,7 @@
           "props": [
             {
               "name": "implementation-status",
-              "value": "not-assessed"
+              "value": "implemented"
             }
           ],
           "remarks": "SI-2 (Flaw Remediation) \u2014 implementation narrative to be completed by the system owner."

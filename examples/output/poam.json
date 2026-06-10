@@ -1,0 +1,112 @@
+{
+  "plan-of-action-and-milestones": {
+    "uuid": "b4b1247b-5945-5f33-8c50-3edbd1a9bfce",
+    "metadata": {
+      "title": "Plan of Action and Milestones: Eastport Benefits Portal",
+      "last-modified": "2026-06-10T04:04:41.250063+00:00",
+      "version": "1.0.0",
+      "oscal-version": "1.1.2"
+    },
+    "system-id": {
+      "id": "EBP-001"
+    },
+    "poam-items": [
+      {
+        "uuid": "8d576dba-bc64-5f25-adc7-a9d9ff5ab824",
+        "title": "AC-3: remediate failed hardening checks",
+        "description": "AC-3 (Access Enforcement) is partial \u2014 failing: /etc/crontab is mode 0o644 exceeds 0o600",
+        "props": [
+          {
+            "name": "status",
+            "value": "open"
+          },
+          {
+            "name": "source-check",
+            "value": "svc_crontab_permissions"
+          }
+        ],
+        "remarks": "Run 'chown root:root /etc/crontab && chmod 0600 /etc/crontab'."
+      },
+      {
+        "uuid": "700ed2d7-2f55-57e8-878e-7b250d1a09ed",
+        "title": "AC-6: remediate failed hardening checks",
+        "description": "AC-6 (Least Privilege) is partial \u2014 failing: /etc/crontab is mode 0o644 exceeds 0o600",
+        "props": [
+          {
+            "name": "status",
+            "value": "open"
+          },
+          {
+            "name": "source-check",
+            "value": "svc_crontab_permissions"
+          }
+        ],
+        "remarks": "Run 'chown root:root /etc/crontab && chmod 0600 /etc/crontab'."
+      },
+      {
+        "uuid": "0cea2f61-b292-5464-a237-016e589250d3",
+        "title": "AU-2: remediate failed hardening checks",
+        "description": "AU-2 (Event Logging) is not_implemented \u2014 failing: auditd service is not active; system calls are not being audited",
+        "props": [
+          {
+            "name": "status",
+            "value": "open"
+          },
+          {
+            "name": "source-check",
+            "value": "svc_auditd_active"
+          }
+        ],
+        "remarks": "Install and enable the audit daemon: 'apt install auditd && systemctl enable --now auditd' (or the dnf equivalent)."
+      },
+      {
+        "uuid": "e6f83ab0-baa0-5f64-bb15-a374d3bc8160",
+        "title": "AU-12: remediate failed hardening checks",
+        "description": "AU-12 (Audit Record Generation) is partial \u2014 failing: auditd service is not active; system calls are not being audited",
+        "props": [
+          {
+            "name": "status",
+            "value": "open"
+          },
+          {
+            "name": "source-check",
+            "value": "svc_auditd_active"
+          }
+        ],
+        "remarks": "Install and enable the audit daemon: 'apt install auditd && systemctl enable --now auditd' (or the dnf equivalent)."
+      },
+      {
+        "uuid": "a5a35c84-b0f3-5651-ae26-4ef52109a8f2",
+        "title": "IA-5: remediate failed hardening checks",
+        "description": "IA-5 (Authenticator Management) is partial \u2014 failing: PASS_MAX_DAYS is 99999; should be 365 or less; No minimum password length configured (checked /etc/login.defs PASS_MIN_LEN)",
+        "props": [
+          {
+            "name": "status",
+            "value": "open"
+          },
+          {
+            "name": "source-check",
+            "value": "accounts_password_max_days, accounts_password_min_length"
+          }
+        ],
+        "remarks": "Set 'PASS_MAX_DAYS 365' (or lower) in /etc/login.defs. Set 'minlen = 14' in /etc/security/pwquality.conf (libpwquality), or 'PASS_MIN_LEN 14' in /etc/login.defs on systems without pam_pwquality."
+      },
+      {
+        "uuid": "50403a1a-b4a6-50e7-90ca-95c0fd01e505",
+        "title": "SC-7: remediate failed hardening checks",
+        "description": "SC-7 (Boundary Protection) is not_implemented \u2014 failing: No firewall service is active (checked ufw, firewalld, nftables)",
+        "props": [
+          {
+            "name": "status",
+            "value": "open"
+          },
+          {
+            "name": "source-check",
+            "value": "svc_firewall_active"
+          }
+        ],
+        "remarks": "Enable a host firewall, e.g. 'ufw enable' (Ubuntu) or 'systemctl enable --now firewalld' (RHEL), with a default-deny inbound policy."
+      }
+    ]
+  }
+}

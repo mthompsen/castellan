@@ -148,7 +148,7 @@ this selects the SP 800-53B **moderate** baseline.
 
 > Enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.
 
-- **Implementation status:** not_assessed
+- **Implementation status:** partial
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
@@ -173,7 +173,7 @@ this selects the SP 800-53B **moderate** baseline.
 
 > Employ the principle of least privilege, allowing only authorized accesses for users (or processes acting on behalf of users) that are necessary to accomplish assigned organizational tasks.
 
-- **Implementation status:** not_assessed
+- **Implementation status:** partial
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
@@ -515,7 +515,7 @@ this selects the SP 800-53B **moderate** baseline.
 > d. Provide a rationale for why the event types selected for logging are deemed to be adequate to support after-the-fact investigations of incidents; and
 > e. Review and update the event types selected for logging [Assignment: organization-defined frequency].
 
-- **Implementation status:** not_assessed
+- **Implementation status:** not_implemented
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
@@ -616,7 +616,7 @@ this selects the SP 800-53B **moderate** baseline.
 > a. Protect audit information and audit logging tools from unauthorized access, modification, and deletion; and
 > b. Alert [Assignment: organization-defined personnel or roles] upon detection of unauthorized access, modification, or deletion of audit information.
 
-- **Implementation status:** not_assessed
+- **Implementation status:** implemented
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
@@ -642,7 +642,7 @@ this selects the SP 800-53B **moderate** baseline.
 > b. Allow [Assignment: organization-defined personnel or roles] to select the event types that are to be logged by specific components of the system; and
 > c. Generate audit records for the event types defined in [AU-2c](#au-2_smt.c) that include the audit record content defined in [AU-3](#au-3).
 
-- **Implementation status:** not_assessed
+- **Implementation status:** partial
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
@@ -882,7 +882,7 @@ this selects the SP 800-53B **moderate** baseline.
 > c. Identify, document, and approve any deviations from established configuration settings for [Assignment: organization-defined system components] based on [Assignment: organization-defined operational requirements] ; and
 > d. Monitor and control changes to the configuration settings in accordance with organizational policies and procedures.
 
-- **Implementation status:** not_assessed
+- **Implementation status:** implemented
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
@@ -1299,7 +1299,7 @@ this selects the SP 800-53B **moderate** baseline.
 > c. Assigning the identifier to the intended individual, group, role, service, or device; and
 > d. Preventing reuse of identifiers for [Assignment: organization-defined time period].
 
-- **Implementation status:** not_assessed
+- **Implementation status:** implemented
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
@@ -1324,7 +1324,7 @@ this selects the SP 800-53B **moderate** baseline.
 > h. Requiring individuals to take, and having devices implement, specific controls to protect authenticators; and
 > i. Changing authenticators for group or role accounts when membership to those accounts changes.
 
-- **Implementation status:** not_assessed
+- **Implementation status:** partial
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
@@ -2485,7 +2485,7 @@ this selects the SP 800-53B **moderate** baseline.
 > b. Implement subnetworks for publicly accessible system components that are [Selection: physically; logically] separated from internal organizational networks; and
 > c. Connect to external networks or systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security and privacy architecture.
 
-- **Implementation status:** not_assessed
+- **Implementation status:** not_implemented
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
@@ -2641,7 +2641,7 @@ this selects the SP 800-53B **moderate** baseline.
 
 > Protect the [Selection (one-or-more): confidentiality; integrity] of the following information at rest: [Assignment: organization-defined information at rest].
 
-- **Implementation status:** not_assessed
+- **Implementation status:** implemented
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
@@ -2686,7 +2686,7 @@ this selects the SP 800-53B **moderate** baseline.
 > c. Install security-relevant software and firmware updates within [Assignment: organization-defined time period] of the release of the updates; and
 > d. Incorporate flaw remediation into the organizational configuration management process.
 
-- **Implementation status:** not_assessed
+- **Implementation status:** implemented
 - **Responsible role:** _to be assigned_
 - **Implementation narrative:** _to be completed_
 
