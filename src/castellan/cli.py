@@ -15,6 +15,7 @@ from castellan.catalog import load_controls
 from castellan.categorize import categorize as categorize_system
 from castellan.fetch import DEFAULT_DATA_DIR, fetch_oscal_content
 from castellan.models import Control, Impact, SystemDescription, load_system_description
+from castellan.ssp import write_ssp
 
 app = typer.Typer(
     name="castellan",
@@ -97,21 +98,22 @@ def fetch(
 @ssp_app.command("generate")
 def ssp_generate(
     system_file: Annotated[Path, typer.Argument(help="System description YAML file.")],
+    out_dir: Annotated[
+        Path, typer.Option("--out", "-o", help="Directory to write ssp.md and ssp.json into.")
+    ] = Path("out"),
 ) -> None:
-    """Generate an SSP for the system (stub: lists the selected baseline controls)."""
+    """Generate the System Security Plan: ssp.md (skeleton) and ssp.json (OSCAL)."""
     system = _load_system_or_exit(system_file)
     result = categorize_system(system)
     controls = _load_controls_or_exit(result.selected_baseline)
 
-    table = Table(
-        title=f"{system.name} — {result.selected_baseline} baseline ({len(controls)} controls)"
+    md_path, json_path = write_ssp(system, result, controls, out_dir)
+    console.print(
+        f"Generated SSP for [bold]{system.name}[/bold] — "
+        f"{result.selected_baseline} baseline, {len(controls)} controls"
     )
-    table.add_column("Control")
-    table.add_column("Title")
-    for control in controls:
-        table.add_row(control.id, control.title)
-    console.print(table)
-    console.print("[dim]SSP rendering (ssp.md / ssp.json) arrives in Phase 3.[/dim]")
+    console.print(f"  wrote {md_path}")
+    console.print(f"  wrote {json_path}")
 
 
 if __name__ == "__main__":

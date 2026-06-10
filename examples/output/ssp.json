@@ -1,0 +1,3298 @@
+{
+  "system-security-plan": {
+    "uuid": "ffb16769-631f-5cf8-9d28-7c695a48044d",
+    "metadata": {
+      "title": "System Security Plan: Eastport Benefits Portal",
+      "last-modified": "2026-06-10T02:08:21.196385+00:00",
+      "version": "1.0.0",
+      "oscal-version": "1.1.2",
+      "roles": [
+        {
+          "id": "system-owner",
+          "title": "System Owner"
+        }
+      ]
+    },
+    "import-profile": {
+      "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_MODERATE-baseline_profile.json"
+    },
+    "system-characteristics": {
+      "system-ids": [
+        {
+          "id": "EBP-001"
+        }
+      ],
+      "system-name": "Eastport Benefits Portal",
+      "description": "Public-facing web application where residents apply for municipal benefit programs. A single Ubuntu host runs the web tier and database; staff review applications through an authenticated admin interface.",
+      "security-sensitivity-level": "fips-199-moderate",
+      "system-information": {
+        "information-types": [
+          {
+            "uuid": "25189829-d3c1-58f9-98a4-a4234734af35",
+            "title": "Applicant PII (names, addresses, income records)",
+            "description": "Applicant PII (names, addresses, income records)",
+            "confidentiality-impact": {
+              "base": "fips-199-moderate"
+            },
+            "integrity-impact": {
+              "base": "fips-199-moderate"
+            },
+            "availability-impact": {
+              "base": "fips-199-low"
+            }
+          },
+          {
+            "uuid": "2f1b84da-f77a-53e2-b810-f95f90f7ef01",
+            "title": "Public program information pages",
+            "description": "Public program information pages",
+            "confidentiality-impact": {
+              "base": "fips-199-low"
+            },
+            "integrity-impact": {
+              "base": "fips-199-moderate"
+            },
+            "availability-impact": {
+              "base": "fips-199-low"
+            }
+          },
+          {
+            "uuid": "fe76f86a-a7d4-552e-8ff4-ca0635bda2c4",
+            "title": "Staff authentication credentials",
+            "description": "Staff authentication credentials",
+            "confidentiality-impact": {
+              "base": "fips-199-moderate"
+            },
+            "integrity-impact": {
+              "base": "fips-199-moderate"
+            },
+            "availability-impact": {
+              "base": "fips-199-low"
+            }
+          }
+        ]
+      },
+      "security-impact-level": {
+        "security-objective-confidentiality": "fips-199-moderate",
+        "security-objective-integrity": "fips-199-moderate",
+        "security-objective-availability": "fips-199-low"
+      },
+      "status": {
+        "state": "operational"
+      },
+      "authorization-boundary": {
+        "description": "All components listed in the system implementation."
+      }
+    },
+    "system-implementation": {
+      "users": [
+        {
+          "uuid": "def7972d-744b-538b-bd5e-a67c510b53cf",
+          "title": "City of Eastport \u2014 IT Services",
+          "role-ids": [
+            "system-owner"
+          ]
+        }
+      ],
+      "components": [
+        {
+          "uuid": "295e22b7-5fba-559a-82ab-753201f56410",
+          "type": "this-system",
+          "title": "Eastport Benefits Portal",
+          "description": "Public-facing web application where residents apply for municipal benefit programs. A single Ubuntu host runs the web tier and database; staff review applications through an authenticated admin interface.",
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "48fd7ebe-4b31-55ff-bea4-98605465280f",
+          "type": "software",
+          "title": "Ubuntu 22.04 web server (nginx + gunicorn)",
+          "description": "Ubuntu 22.04 web server (nginx + gunicorn)",
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "326a5520-ec70-5130-a1a6-9b08e16e7c30",
+          "type": "software",
+          "title": "PostgreSQL 15 database",
+          "description": "PostgreSQL 15 database",
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "c8c21a2d-249c-5c81-8b98-2b35922c5335",
+          "type": "software",
+          "title": "OpenSSH for administrative access",
+          "description": "OpenSSH for administrative access",
+          "status": {
+            "state": "operational"
+          }
+        }
+      ]
+    },
+    "control-implementation": {
+      "description": "Implemented requirements for the SP 800-53B moderate baseline (287 controls).",
+      "implemented-requirements": [
+        {
+          "uuid": "17b98ae4-aad8-5a2a-8f03-139e3072f7ee",
+          "control-id": "ac-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7da925a0-cffd-5556-9e9f-7c9b2fdf40e8",
+          "control-id": "ac-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-2 (Account Management) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4067f64d-a50a-5e87-84da-2874ec017d67",
+          "control-id": "ac-2.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-2(1) (Automated System Account Management) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6f61d3e5-0d36-598b-a230-22ac202c1252",
+          "control-id": "ac-2.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-2(2) (Automated Temporary and Emergency Account Management) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6bc9b44f-6bcb-5470-958c-ceee2fe08a03",
+          "control-id": "ac-2.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-2(3) (Disable Accounts) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7d2ad3e0-62f7-5844-896c-ef733451ff0c",
+          "control-id": "ac-2.4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-2(4) (Automated Audit Actions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d58e9705-816d-5627-817a-952ce3e49606",
+          "control-id": "ac-2.5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-2(5) (Inactivity Logout) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "af2a9105-38fe-5484-b60f-fa0544378c3b",
+          "control-id": "ac-2.13",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-2(13) (Disable Accounts for High-risk Individuals) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "81a1adee-51a0-5279-9345-ed7025580c4c",
+          "control-id": "ac-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-3 (Access Enforcement) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "520c32c1-5123-5d3b-ac15-2d33ce10ca68",
+          "control-id": "ac-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-4 (Information Flow Enforcement) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "b7751570-eae4-5990-836b-2f77daf0c28c",
+          "control-id": "ac-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-5 (Separation of Duties) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "dd669fe1-b2a8-5a38-9883-d29e7b45cdf2",
+          "control-id": "ac-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-6 (Least Privilege) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "1f2a60a7-4ad3-505b-bfd0-5e8df00f4b34",
+          "control-id": "ac-6.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-6(1) (Authorize Access to Security Functions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "089095fe-4238-57a3-abec-302eb38fa82e",
+          "control-id": "ac-6.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-6(2) (Non-privileged Access for Nonsecurity Functions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "22b1f500-11b5-583c-a832-7af87d4877d3",
+          "control-id": "ac-6.5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-6(5) (Privileged Accounts) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "cde8eea2-dff3-554e-b8f5-c6721d309053",
+          "control-id": "ac-6.7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-6(7) (Review of User Privileges) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d6b7b63e-fc6e-5ae7-ab7b-fc31773d0b38",
+          "control-id": "ac-6.9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-6(9) (Log Use of Privileged Functions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6d23a4a1-61b0-53f7-8b4f-e6c5e2eea146",
+          "control-id": "ac-6.10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-6(10) (Prohibit Non-privileged Users from Executing Privileged Functions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ab3a0e57-738e-5674-a0a6-f2fe5931174e",
+          "control-id": "ac-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-7 (Unsuccessful Logon Attempts) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7ce4165f-e549-5860-9e94-4510308e9e29",
+          "control-id": "ac-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-8 (System Use Notification) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6059830a-386d-51cf-9c53-472a54e13ea2",
+          "control-id": "ac-11",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-11 (Device Lock) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "baedab09-4383-5d0a-9e5c-5536a3b6b97f",
+          "control-id": "ac-11.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-11(1) (Pattern-hiding Displays) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ae0e0365-b371-508d-b68f-0d6de5d47ecd",
+          "control-id": "ac-12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-12 (Session Termination) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "96d972ec-b80b-5cc8-b9c5-78fe7d7a13f3",
+          "control-id": "ac-14",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-14 (Permitted Actions Without Identification or Authentication) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "8cad9448-2749-5234-9236-e9785e1ed548",
+          "control-id": "ac-17",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-17 (Remote Access) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0d72415b-2e0b-5ae2-9984-bd3b3e36e8fb",
+          "control-id": "ac-17.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-17(1) (Monitoring and Control) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "b21f3181-379a-562d-8d6f-d1fef734897a",
+          "control-id": "ac-17.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-17(2) (Protection of Confidentiality and Integrity Using Encryption) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f61ade8f-5099-55e1-9603-06c653cd3144",
+          "control-id": "ac-17.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-17(3) (Managed Access Control Points) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c878a80a-208e-55c4-9ef5-85b363929422",
+          "control-id": "ac-17.4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-17(4) (Privileged Commands and Access) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "9ed0177a-16c4-5a97-9da6-d12af16fef95",
+          "control-id": "ac-18",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-18 (Wireless Access) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "77edb2e8-1984-51a5-843c-6c9b4326c879",
+          "control-id": "ac-18.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-18(1) (Authentication and Encryption) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "afe9e800-fcab-5094-a839-9216e028535c",
+          "control-id": "ac-18.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-18(3) (Disable Wireless Networking) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "38f64139-0053-577c-8fcb-d95c3873cfbe",
+          "control-id": "ac-19",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-19 (Access Control for Mobile Devices) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6d23ecc2-b289-56f4-a995-e5782cb07eea",
+          "control-id": "ac-19.5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-19(5) (Full Device or Container-based Encryption) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "14e977a9-6138-5f43-999d-440ab7e7caac",
+          "control-id": "ac-20",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-20 (Use of External Systems) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "72bbf874-392f-5aad-a647-d3f1dea85734",
+          "control-id": "ac-20.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-20(1) (Limits on Authorized Use) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0f2e96a5-5930-5e6d-ad0c-d40d232551d9",
+          "control-id": "ac-20.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-20(2) (Portable Storage Devices \u2014 Restricted Use) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "b0d189e1-d360-54af-8bc5-adb764fdaa89",
+          "control-id": "ac-21",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-21 (Information Sharing) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "321f4ef0-c8a5-5897-9641-fd1852fcf222",
+          "control-id": "ac-22",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AC-22 (Publicly Accessible Content) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "cb961c6f-d22e-51a7-a87b-acf7b403b0c3",
+          "control-id": "at-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AT-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0f4b3482-989b-5d78-987c-94d28b7cdc3d",
+          "control-id": "at-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AT-2 (Literacy Training and Awareness) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a3c4fb28-987c-5ed0-9140-c54f97af798b",
+          "control-id": "at-2.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AT-2(2) (Insider Threat) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "69a212fc-77f2-5b6a-9e5c-46a70e542787",
+          "control-id": "at-2.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AT-2(3) (Social Engineering and Mining) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "031160ea-a610-5e27-9b9b-df47d7207856",
+          "control-id": "at-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AT-3 (Role-based Training) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "75d12f52-40ed-5c68-9a5c-98b036ff11a7",
+          "control-id": "at-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AT-4 (Training Records) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0931e358-e5e9-5ad2-b350-5ab2efeaf7b6",
+          "control-id": "au-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "137687ef-17fe-533a-b099-231a4324b75b",
+          "control-id": "au-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-2 (Event Logging) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a3daa7fb-9935-5cff-840d-aae7cb8a8599",
+          "control-id": "au-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-3 (Content of Audit Records) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "733ad94d-514a-5c35-ac9a-4a4becc3372a",
+          "control-id": "au-3.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-3(1) (Additional Audit Information) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0fad60d2-1044-5539-abb1-58dee383994e",
+          "control-id": "au-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-4 (Audit Log Storage Capacity) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "876d6e80-1e79-533c-bd47-880e02396548",
+          "control-id": "au-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-5 (Response to Audit Logging Process Failures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a240e1d4-e9c4-5e11-957a-289f0599a53c",
+          "control-id": "au-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-6 (Audit Record Review, Analysis, and Reporting) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d9e3079b-f6a3-5b12-9d75-ff7e9dd5c647",
+          "control-id": "au-6.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-6(1) (Automated Process Integration) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "1b86c4c3-7e8d-5b89-825e-31a9433d74b5",
+          "control-id": "au-6.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-6(3) (Correlate Audit Record Repositories) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "06a48cb2-33bd-5e4a-a308-59d1c2d339df",
+          "control-id": "au-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-7 (Audit Record Reduction and Report Generation) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "30a8415e-2b66-5d3c-a7ff-47cec7d8eef5",
+          "control-id": "au-7.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-7(1) (Automatic Processing) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "96bbd518-8249-5a3b-b835-d2f133281928",
+          "control-id": "au-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-8 (Time Stamps) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c1dfb1cb-ffd6-5ed5-a4cf-0d5a5828921f",
+          "control-id": "au-9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-9 (Protection of Audit Information) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "829490dc-3fe8-578b-ab9e-d2e1597431ca",
+          "control-id": "au-9.4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-9(4) (Access by Subset of Privileged Users) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c1561108-21b8-5831-951b-08a65a283230",
+          "control-id": "au-11",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-11 (Audit Record Retention) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "e7eb3ca5-03ca-5569-a91a-a1e85c14f7ac",
+          "control-id": "au-12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "AU-12 (Audit Record Generation) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "5aef92b2-24ef-5860-8360-4d9400ab8c48",
+          "control-id": "ca-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CA-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c47ecda8-3853-5af3-9051-2beaeabd636d",
+          "control-id": "ca-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CA-2 (Control Assessments) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2cff0e87-f502-5ed1-9dee-fbffe9bba815",
+          "control-id": "ca-2.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CA-2(1) (Independent Assessors) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c4fba66a-70fa-5913-be64-ee82da7a39d3",
+          "control-id": "ca-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CA-3 (Information Exchange) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "5313d734-7d43-5d1e-b673-6d24487936f1",
+          "control-id": "ca-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CA-5 (Plan of Action and Milestones) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "82db1458-c962-5bcb-ad02-4abf2294b308",
+          "control-id": "ca-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CA-6 (Authorization) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "41729fd0-9c89-5545-9d7b-7ecf6810a49e",
+          "control-id": "ca-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CA-7 (Continuous Monitoring) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7c577d58-4179-5527-9602-ed42b68e7d2e",
+          "control-id": "ca-7.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CA-7(1) (Independent Assessment) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "e2f0ee75-0b05-52ac-a8e0-2df93836c756",
+          "control-id": "ca-7.4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CA-7(4) (Risk Monitoring) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "bcfa8c95-bb69-535e-b04e-b0ec571c2e4d",
+          "control-id": "ca-9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CA-9 (Internal System Connections) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "3d3df7a7-0104-500b-81f5-d51f6c70a647",
+          "control-id": "cm-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "8f5fc384-5a28-5421-a1ac-fd3edafd47f5",
+          "control-id": "cm-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-2 (Baseline Configuration) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "56be0fc5-2601-5f57-85fd-336d3ba6ce2b",
+          "control-id": "cm-2.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-2(2) (Automation Support for Accuracy and Currency) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "b22bc814-4c67-5996-8e5e-0a788f3041df",
+          "control-id": "cm-2.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-2(3) (Retention of Previous Configurations) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "9d55ad6e-c5a3-51df-97f3-1b79f76094d3",
+          "control-id": "cm-2.7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-2(7) (Configure Systems and Components for High-risk Areas) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d493150c-05a7-53be-89e5-117304428ab7",
+          "control-id": "cm-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-3 (Configuration Change Control) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "44d2665b-1f68-54e5-9c64-c8bedd1e0159",
+          "control-id": "cm-3.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-3(2) (Testing, Validation, and Documentation of Changes) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "93bcf3a3-074e-5233-b8bc-f7f93a7c1935",
+          "control-id": "cm-3.4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-3(4) (Security and Privacy Representatives) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2c63026a-9117-5193-9af2-dc726a59fd7f",
+          "control-id": "cm-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-4 (Impact Analyses) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "50c98133-0787-5d6a-8e5e-8d774913790f",
+          "control-id": "cm-4.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-4(2) (Verification of Controls) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f50ab01d-7026-5f1b-93e4-33812300e938",
+          "control-id": "cm-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-5 (Access Restrictions for Change) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "1496812a-a751-52bb-9c2f-7e740d61691c",
+          "control-id": "cm-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-6 (Configuration Settings) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ba46c6ec-e881-5251-bf69-90fe703ac1d1",
+          "control-id": "cm-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-7 (Least Functionality) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "cedafc7e-0b84-58d0-aab3-1959adea2a3d",
+          "control-id": "cm-7.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-7(1) (Periodic Review) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "8a7dbcd7-c3cc-5571-b847-9c970cf64d74",
+          "control-id": "cm-7.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-7(2) (Prevent Program Execution) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7ac7bc44-e534-57f9-9fa5-3897a74dd059",
+          "control-id": "cm-7.5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-7(5) (Authorized Software \u2014 Allow-by-exception) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "433381cb-9577-52b9-a8db-4894f0541970",
+          "control-id": "cm-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-8 (System Component Inventory) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "5fcb8ddf-9545-5129-aa01-86a63d361780",
+          "control-id": "cm-8.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-8(1) (Updates During Installation and Removal) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7df12793-b7b7-5370-9a80-c6f63a307d6e",
+          "control-id": "cm-8.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-8(3) (Automated Unauthorized Component Detection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "aefe064f-de41-5e9c-b5f2-e5bf20257ad4",
+          "control-id": "cm-9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-9 (Configuration Management Plan) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a575fafd-065b-5cec-b429-17ea8dfa56cc",
+          "control-id": "cm-10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-10 (Software Usage Restrictions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6c3647ac-c916-5ce3-b168-bb50f6f0edea",
+          "control-id": "cm-11",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-11 (User-installed Software) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7bd59b73-1c21-5b6d-b20a-6252edcb2acd",
+          "control-id": "cm-12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-12 (Information Location) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "521a9265-0741-5b43-8fc2-15df9abfe703",
+          "control-id": "cm-12.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CM-12(1) (Automated Tools to Support Information Location) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "343b9fba-b2e2-5443-9f71-0c4f4cc3d190",
+          "control-id": "cp-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "11ae8d44-bbf8-58c3-a080-76b751ee109b",
+          "control-id": "cp-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-2 (Contingency Plan) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "9af2cee0-d2c5-53fe-ad8c-e1a793f91f59",
+          "control-id": "cp-2.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-2(1) (Coordinate with Related Plans) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "584e02aa-af5f-5a6c-91ac-10104162213e",
+          "control-id": "cp-2.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-2(3) (Resume Mission and Business Functions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6cdb02f0-dede-5682-b530-c990b6e3355f",
+          "control-id": "cp-2.8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-2(8) (Identify Critical Assets) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "e0bd6d80-95c9-5fad-a664-400df32600d1",
+          "control-id": "cp-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-3 (Contingency Training) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a2913b06-1873-5e80-86dc-9656d6faa3c0",
+          "control-id": "cp-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-4 (Contingency Plan Testing) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "b3a9dc63-a1d9-5189-ab27-f6efbf8f658b",
+          "control-id": "cp-4.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-4(1) (Coordinate with Related Plans) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "dadde625-cd2b-5457-a861-6df3d193de6c",
+          "control-id": "cp-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-6 (Alternate Storage Site) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d352af1a-4faf-5963-b039-467e2ef0360e",
+          "control-id": "cp-6.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-6(1) (Separation from Primary Site) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a389004a-e242-54de-a358-b3440741583b",
+          "control-id": "cp-6.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-6(3) (Accessibility) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4817e7b5-803a-554c-8620-f384174af1ae",
+          "control-id": "cp-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-7 (Alternate Processing Site) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a0e3d78d-fecd-5081-a6a8-e2477f4e6e5a",
+          "control-id": "cp-7.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-7(1) (Separation from Primary Site) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6c279108-fd11-53c6-bdee-bcbf99545c70",
+          "control-id": "cp-7.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-7(2) (Accessibility) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "49853a7a-dab0-5eb3-8126-0bdc268cd3bc",
+          "control-id": "cp-7.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-7(3) (Priority of Service) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "dd4271ec-3acd-5da9-8757-c2c70fac9ac8",
+          "control-id": "cp-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-8 (Telecommunications Services) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ec121273-8459-590a-aa77-2e0f69b62d63",
+          "control-id": "cp-8.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-8(1) (Priority of Service Provisions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c7be6811-22c5-5955-8915-14ec625e43d1",
+          "control-id": "cp-8.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-8(2) (Single Points of Failure) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f13e7db8-0dcd-581d-bf2d-b2b3fb001d1a",
+          "control-id": "cp-9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-9 (System Backup) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4b8decf8-0fce-5e43-b339-2d9d9454d954",
+          "control-id": "cp-9.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-9(1) (Testing for Reliability and Integrity) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c5b1bb4f-8ad9-55d5-acce-ed798cb3d274",
+          "control-id": "cp-9.8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-9(8) (Cryptographic Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "674c9702-186b-55d4-a22d-3380ed218cb3",
+          "control-id": "cp-10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-10 (System Recovery and Reconstitution) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7f2ba1eb-0261-5c79-a9f4-3867a74b2f69",
+          "control-id": "cp-10.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "CP-10(2) (Transaction Recovery) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c8358418-e7d5-56a4-9df4-6274238af38d",
+          "control-id": "ia-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "db0ae5de-158d-5516-83de-c770f0f87ee4",
+          "control-id": "ia-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-2 (Identification and Authentication (Organizational Users)) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "60ad84ef-3da2-51b2-bfa6-5300943c93bc",
+          "control-id": "ia-2.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-2(1) (Multi-factor Authentication to Privileged Accounts) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "e5bc2790-b98a-5099-b781-2a09616b0e0d",
+          "control-id": "ia-2.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-2(2) (Multi-factor Authentication to Non-privileged Accounts) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "9eac49a4-9525-5dd1-bdcf-bb280df6c11c",
+          "control-id": "ia-2.8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-2(8) (Access to Accounts \u2014 Replay Resistant) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0b5080a2-0c74-579e-848f-0405ca8f3055",
+          "control-id": "ia-2.12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-2(12) (Acceptance of PIV Credentials) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ba666e01-ca13-5b4f-bc6e-83d08f36841e",
+          "control-id": "ia-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-3 (Device Identification and Authentication) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ec77d7cb-857e-50e2-9cbd-30a826296d5c",
+          "control-id": "ia-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-4 (Identifier Management) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0044ef4b-2a28-5db2-ade4-85ece22505c5",
+          "control-id": "ia-4.4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-4(4) (Identify User Status) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2ab9baeb-7746-5363-b8b4-1d673a798ce6",
+          "control-id": "ia-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-5 (Authenticator Management) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "65cf82d6-365c-50df-ac81-c7fe90b9331f",
+          "control-id": "ia-5.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-5(1) (Password-based Authentication) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d025c2ae-96f8-5099-964d-7546d32ec2b0",
+          "control-id": "ia-5.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-5(2) (Public Key-based Authentication) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "eccb2e20-9077-5074-bc2b-6660eae960bc",
+          "control-id": "ia-5.6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-5(6) (Protection of Authenticators) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "685fb5f8-c14d-572f-b333-d331fa565ea2",
+          "control-id": "ia-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-6 (Authentication Feedback) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f06ed184-c6a6-5f22-8779-b9646cf55232",
+          "control-id": "ia-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-7 (Cryptographic Module Authentication) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2ace2a40-151c-5c2f-9e7b-ad1a3d275a2b",
+          "control-id": "ia-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-8 (Identification and Authentication (Non-organizational Users)) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "90582893-bea1-57ee-8eed-7422ba3f58d9",
+          "control-id": "ia-8.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-8(1) (Acceptance of PIV Credentials from Other Agencies) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "8c4f1967-0c97-5f37-82cc-43e1f67b1819",
+          "control-id": "ia-8.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-8(2) (Acceptance of External Authenticators) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7053fb49-ca6b-5321-bd4f-81e267fccfe4",
+          "control-id": "ia-8.4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-8(4) (Use of Defined Profiles) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f4b0ac22-7a7b-52c5-846d-e5a824aac397",
+          "control-id": "ia-11",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-11 (Re-authentication) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "58993534-62d1-560c-97db-c6cd20f6d344",
+          "control-id": "ia-12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-12 (Identity Proofing) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d0faad13-eb64-571b-8983-8fcd1937b365",
+          "control-id": "ia-12.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-12(2) (Identity Evidence) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "3dabc77b-354c-54cb-b4e9-1e4faace337f",
+          "control-id": "ia-12.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-12(3) (Identity Evidence Validation and Verification) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d4625ffe-1db8-546d-abae-7bab615ed8de",
+          "control-id": "ia-12.5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IA-12(5) (Address Confirmation) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f8e679f6-9189-5650-a036-1a404c36afd6",
+          "control-id": "ir-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "56357d53-8ea4-58b7-937c-ce57c20f87d3",
+          "control-id": "ir-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-2 (Incident Response Training) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4d786dec-2b08-5c9a-b2eb-59fa457732f6",
+          "control-id": "ir-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-3 (Incident Response Testing) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "13e2ffb4-a25f-5a11-8912-c0689361224c",
+          "control-id": "ir-3.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-3(2) (Coordination with Related Plans) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0ce11288-634c-59fa-b0e3-8ce3f4e7ccf8",
+          "control-id": "ir-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-4 (Incident Handling) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d5be4350-7ce6-58fb-ad6d-9c388df8126f",
+          "control-id": "ir-4.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-4(1) (Automated Incident Handling Processes) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "919a07c8-a96e-59a3-b421-5bf432f3d886",
+          "control-id": "ir-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-5 (Incident Monitoring) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "069b1731-3679-52e3-8f6b-e053c9851db9",
+          "control-id": "ir-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-6 (Incident Reporting) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "e7035c8c-d2c0-5b87-a124-b99592c64d4b",
+          "control-id": "ir-6.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-6(1) (Automated Reporting) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "fbb10b27-39bc-53d1-9e23-ffc34cc02619",
+          "control-id": "ir-6.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-6(3) (Supply Chain Coordination) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "feb21584-01d9-52d2-84e6-0aab36c45d9e",
+          "control-id": "ir-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-7 (Incident Response Assistance) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6a785a0c-aa22-5a90-aa75-c7ce996ed1d3",
+          "control-id": "ir-7.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-7(1) (Automation Support for Availability of Information and Support) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4621115b-0ec2-5a4d-b1f5-64e7093afbc3",
+          "control-id": "ir-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "IR-8 (Incident Response Plan) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c805aee8-69c4-5b1b-a81b-9b3832fe0eee",
+          "control-id": "ma-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MA-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "1828cfc3-e955-5e81-a375-5a685d88916f",
+          "control-id": "ma-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MA-2 (Controlled Maintenance) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d48bc76e-0322-5eac-bb01-15bd8cf2f3cc",
+          "control-id": "ma-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MA-3 (Maintenance Tools) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "5a3c3897-e22d-51f0-b60f-9cdc3bbb9a81",
+          "control-id": "ma-3.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MA-3(1) (Inspect Tools) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6a5bc503-6cb5-5177-929c-ed31a806a117",
+          "control-id": "ma-3.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MA-3(2) (Inspect Media) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "efd0267b-31a4-5fa9-b91d-84edaf677881",
+          "control-id": "ma-3.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MA-3(3) (Prevent Unauthorized Removal) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4ec2164a-5412-5db2-910c-4c2b9224e5ae",
+          "control-id": "ma-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MA-4 (Nonlocal Maintenance) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "8b27f4f5-6864-59c9-8a74-4e9de8b88767",
+          "control-id": "ma-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MA-5 (Maintenance Personnel) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "8e17f5d2-b256-5bd1-b078-0865cafdc8be",
+          "control-id": "ma-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MA-6 (Timely Maintenance) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2c6e1219-eb28-58b1-b3ce-2470a18a5f28",
+          "control-id": "mp-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MP-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "78d89db7-fee0-57af-aef8-d8e1b3e8aeae",
+          "control-id": "mp-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MP-2 (Media Access) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c32f3ead-5cb2-5446-97db-b67553a27962",
+          "control-id": "mp-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MP-3 (Media Marking) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "b3e59f53-3b44-51dd-936e-cfc972bb070f",
+          "control-id": "mp-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MP-4 (Media Storage) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7dbccf74-bff8-5ee4-9305-fee314a4eb46",
+          "control-id": "mp-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MP-5 (Media Transport) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ed6e19a0-dd10-5289-ae0b-bc975266f61f",
+          "control-id": "mp-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MP-6 (Media Sanitization) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "66a034ac-3da8-5396-81db-401a94f7b077",
+          "control-id": "mp-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "MP-7 (Media Use) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "cbc129a4-8d0e-55c3-abf0-54cf7b945ed4",
+          "control-id": "pe-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ab9cd411-ff0a-5847-b8ff-d05d83ed0482",
+          "control-id": "pe-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-2 (Physical Access Authorizations) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "8f3905ac-692f-52da-abc6-3aa648eb2c9d",
+          "control-id": "pe-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-3 (Physical Access Control) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2fdc3d23-e477-524e-9e6d-4bcb2c24a093",
+          "control-id": "pe-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-4 (Access Control for Transmission) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6c40c0fc-ed06-5dd5-8ec6-f57f9d42e785",
+          "control-id": "pe-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-5 (Access Control for Output Devices) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4fa18898-23c1-56ec-a67a-e5761c684615",
+          "control-id": "pe-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-6 (Monitoring Physical Access) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "5659ae22-1e3d-5b0e-82b1-27dee8fe2def",
+          "control-id": "pe-6.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-6(1) (Intrusion Alarms and Surveillance Equipment) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "1d595498-5926-58f7-916b-3a362c94e47f",
+          "control-id": "pe-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-8 (Visitor Access Records) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "1189f10b-cdac-5b14-ab73-a6f403c362dd",
+          "control-id": "pe-9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-9 (Power Equipment and Cabling) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "80794c61-943f-5319-b1d2-cebdf197a40e",
+          "control-id": "pe-10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-10 (Emergency Shutoff) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "afe3aa34-6348-5b4e-9c5c-35b95c12ba74",
+          "control-id": "pe-11",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-11 (Emergency Power) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "226c4c38-72d6-5fad-9c06-687de2db1015",
+          "control-id": "pe-12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-12 (Emergency Lighting) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "96cf0133-186f-5aff-8dc5-c9c125b459de",
+          "control-id": "pe-13",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-13 (Fire Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "57af778a-cf7f-5dac-a4df-cd9f1e3df8fc",
+          "control-id": "pe-13.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-13(1) (Detection Systems \u2014 Automatic Activation and Notification) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "b3d55918-4fc2-5777-8efe-f9b3af324a28",
+          "control-id": "pe-14",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-14 (Environmental Controls) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a80cf615-7a79-502c-b1ae-14f4e78341df",
+          "control-id": "pe-15",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-15 (Water Damage Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "fbbcd372-12f6-594c-855e-bff3a20a40b4",
+          "control-id": "pe-16",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-16 (Delivery and Removal) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "3288dbc9-adbd-5330-9d83-4ad34fb181e2",
+          "control-id": "pe-17",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PE-17 (Alternate Work Site) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2520002c-df66-535c-8446-e28e73b9f4f0",
+          "control-id": "pl-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PL-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "dbf84fbd-399d-5697-9bbc-b3096377faab",
+          "control-id": "pl-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PL-2 (System Security and Privacy Plans) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d4c83b46-8e2d-51a1-8248-d4100691f446",
+          "control-id": "pl-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PL-4 (Rules of Behavior) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "cbfab4c9-5883-5d0e-a6c9-0debe8dbe1b3",
+          "control-id": "pl-4.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PL-4(1) (Social Media and External Site/Application Usage Restrictions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "96d1ce90-c2f8-5e74-a44b-bffc3e5a200c",
+          "control-id": "pl-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PL-8 (Security and Privacy Architectures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0b8c26a2-3562-5cd9-ab95-ab66ac5dd38b",
+          "control-id": "pl-10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PL-10 (Baseline Selection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "207f63e7-bcbe-57fc-8a43-cd55ce5a1bab",
+          "control-id": "pl-11",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PL-11 (Baseline Tailoring) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "181a59e8-78c3-5fcf-90ce-17bdc7eab607",
+          "control-id": "ps-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PS-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "5468c236-79d2-56d8-aee8-f4115c2ba952",
+          "control-id": "ps-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PS-2 (Position Risk Designation) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "736fbde5-2764-5cae-a5b3-3e9380737424",
+          "control-id": "ps-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PS-3 (Personnel Screening) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "08246bd6-6aee-52b2-8b1d-f6cc88067b64",
+          "control-id": "ps-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PS-4 (Personnel Termination) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c0672968-4301-5ac4-9269-7a208f608ebe",
+          "control-id": "ps-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PS-5 (Personnel Transfer) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2514b706-be9f-59e8-b942-7ddf81891b72",
+          "control-id": "ps-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PS-6 (Access Agreements) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d7daef3a-0478-56a2-a981-bd900dc0c7fc",
+          "control-id": "ps-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PS-7 (External Personnel Security) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "814d4db9-5cfc-515f-93e6-58367bb458bf",
+          "control-id": "ps-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PS-8 (Personnel Sanctions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "840a0eaa-7f7e-5572-a0da-13311d5ad43d",
+          "control-id": "ps-9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "PS-9 (Position Descriptions) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "239f4255-8a39-5e39-bfdb-d84fd9f37520",
+          "control-id": "ra-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "RA-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "9a6a44df-9efa-5c12-a93a-86f17dcec72c",
+          "control-id": "ra-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "RA-2 (Security Categorization) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "594ee47c-cb4e-56a9-a183-dc1a584ccb28",
+          "control-id": "ra-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "RA-3 (Risk Assessment) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f76ab423-7108-5ce5-9396-5fa784c55207",
+          "control-id": "ra-3.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "RA-3(1) (Supply Chain Risk Assessment) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "23df336c-514b-5d3d-9734-9a89144ddb12",
+          "control-id": "ra-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "RA-5 (Vulnerability Monitoring and Scanning) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7576e9cb-9acc-5222-87cf-34b1a3792a8a",
+          "control-id": "ra-5.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "RA-5(2) (Update Vulnerabilities to Be Scanned) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "5cf3f54f-7c48-5241-b19b-c554ed74183a",
+          "control-id": "ra-5.5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "RA-5(5) (Privileged Access) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4df53763-0cee-5af7-bbd2-3d493a316376",
+          "control-id": "ra-5.11",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "RA-5(11) (Public Disclosure Program) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4dee5709-4dcd-50d7-8a9c-b5ce58479dd9",
+          "control-id": "ra-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "RA-7 (Risk Response) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "b2595504-6d6c-5fc5-aa0e-575f8386d1d0",
+          "control-id": "ra-9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "RA-9 (Criticality Analysis) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "93b28198-ec00-5201-ae93-9502cb108180",
+          "control-id": "sa-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "52e0d470-93d9-5ce5-a060-fc9199405a68",
+          "control-id": "sa-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-2 (Allocation of Resources) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ef9cabf9-8c5e-552e-ac56-3661b6bc0f77",
+          "control-id": "sa-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-3 (System Development Life Cycle) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2505b81a-a865-515f-845f-33b60fe041f6",
+          "control-id": "sa-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-4 (Acquisition Process) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "bb372763-8e44-50c6-bdd3-d35be9683af4",
+          "control-id": "sa-4.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-4(1) (Functional Properties of Controls) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "df85cd23-2e32-5f29-af9f-e2cd32350465",
+          "control-id": "sa-4.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-4(2) (Design and Implementation Information for Controls) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4b6e805c-ed8b-58bf-a38b-fabeaa89bcfc",
+          "control-id": "sa-4.9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-4(9) (Functions, Ports, Protocols, and Services in Use) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "19b3acb2-ff3e-559a-9258-3ebc6e538d6c",
+          "control-id": "sa-4.10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-4(10) (Use of Approved PIV Products) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "61a67ef0-0043-5d05-af1e-c80b2b7f4c6d",
+          "control-id": "sa-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-5 (System Documentation) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a2774fe2-9ad7-54f6-a2c0-91d32158711d",
+          "control-id": "sa-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-8 (Security and Privacy Engineering Principles) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "3b4575ff-78dd-55ff-ade1-a3927586bd38",
+          "control-id": "sa-9",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-9 (External System Services) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a4c23e05-c885-5a67-ae91-fdb3bee959be",
+          "control-id": "sa-9.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-9(2) (Identification of Functions, Ports, Protocols, and Services) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2d35c8fa-49e7-519f-b5c4-282f7c41af06",
+          "control-id": "sa-10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-10 (Developer Configuration Management) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "03d39b92-c4aa-5012-89a4-b62dede5b928",
+          "control-id": "sa-11",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-11 (Developer Testing and Evaluation) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2227c57d-43bb-5672-a05a-1e77d5198003",
+          "control-id": "sa-15",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-15 (Development Process, Standards, and Tools) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f3841185-4d4d-5cba-bd7c-a35fb2239e2d",
+          "control-id": "sa-15.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-15(3) (Criticality Analysis) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "08486eec-b163-5e25-ba36-7da92c8a6ef9",
+          "control-id": "sa-22",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SA-22 (Unsupported System Components) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "52fd4731-6487-5b20-abde-1cb99e5f054f",
+          "control-id": "sc-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "a96d3e98-027f-54be-ad61-30dde208da61",
+          "control-id": "sc-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-2 (Separation of System and User Functionality) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ec342f3f-d40e-5bea-a4ce-507628db9263",
+          "control-id": "sc-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-4 (Information in Shared System Resources) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "9eff5e6b-9b0f-5410-919b-bf7ad5120bff",
+          "control-id": "sc-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-5 (Denial-of-service Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "1598affa-7b05-5486-8ca2-8c24979f7bac",
+          "control-id": "sc-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-7 (Boundary Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f26e4643-864a-5264-a1d6-d2c8b4cd49c9",
+          "control-id": "sc-7.3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-7(3) (Access Points) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "773b5b86-0d3f-5c6f-8b4e-aa5dbbbbcaa1",
+          "control-id": "sc-7.4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-7(4) (External Telecommunications Services) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "7d5f37c3-174d-5991-b050-f17ff737f71d",
+          "control-id": "sc-7.5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-7(5) (Deny by Default \u2014 Allow by Exception) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "859e9fff-3bc6-58f6-b82b-e1a3062d54e6",
+          "control-id": "sc-7.7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-7(7) (Split Tunneling for Remote Devices) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "502489fe-8dcb-58ae-9f3e-9e02388a736b",
+          "control-id": "sc-7.8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-7(8) (Route Traffic to Authenticated Proxy Servers) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "3a39b67a-00ce-57e0-84c7-affc872acbfa",
+          "control-id": "sc-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-8 (Transmission Confidentiality and Integrity) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "62877b01-f588-56a1-8440-72a9ee766324",
+          "control-id": "sc-8.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-8(1) (Cryptographic Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "500a244e-73a0-5e26-ae7e-6087a9cdd0d8",
+          "control-id": "sc-10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-10 (Network Disconnect) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c3d170a9-77c9-598b-97b6-dc0f933263e3",
+          "control-id": "sc-12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-12 (Cryptographic Key Establishment and Management) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "817fcd5f-b78d-5196-8db9-ec5fd701c67e",
+          "control-id": "sc-13",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-13 (Cryptographic Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f972cd31-467f-5439-90a9-f85fb16d5fbe",
+          "control-id": "sc-15",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-15 (Collaborative Computing Devices and Applications) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "13599676-a8c5-562d-998e-07c0aab6eee7",
+          "control-id": "sc-17",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-17 (Public Key Infrastructure Certificates) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "5a0e07d8-9fe2-5b7a-82f8-d24c0727b97d",
+          "control-id": "sc-18",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-18 (Mobile Code) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6126af08-b2c9-56b1-9578-cb7aedd257bb",
+          "control-id": "sc-20",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-20 (Secure Name/Address Resolution Service (Authoritative Source)) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "60e3dd96-1665-553a-a25a-bbc6074fd7d4",
+          "control-id": "sc-21",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-21 (Secure Name/Address Resolution Service (Recursive or Caching Resolver)) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "aeba3984-dd79-5366-8bf0-5ae0464f6786",
+          "control-id": "sc-22",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-22 (Architecture and Provisioning for Name/Address Resolution Service) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ee3d3b22-760e-5750-9826-9397187e8494",
+          "control-id": "sc-23",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-23 (Session Authenticity) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "508845be-5e58-5cad-8dc3-fa1b1c09e65d",
+          "control-id": "sc-28",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-28 (Protection of Information at Rest) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0e04e67f-f4e1-5df6-a7a2-506516a596da",
+          "control-id": "sc-28.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-28(1) (Cryptographic Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "f16d02d0-7fef-5bbd-bf78-447a19d2ab0f",
+          "control-id": "sc-39",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SC-39 (Process Isolation) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "24ebf270-bede-52af-80c0-de868379d4be",
+          "control-id": "si-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ee712643-6104-513a-986a-a03f8bd6f753",
+          "control-id": "si-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-2 (Flaw Remediation) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "1deb2373-ee40-5609-b5f8-57e2aa157711",
+          "control-id": "si-2.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-2(2) (Automated Flaw Remediation Status) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4baefcec-49ab-57db-a557-0af36112ff9c",
+          "control-id": "si-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-3 (Malicious Code Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "3175af98-ba79-54f0-9b46-172040c3e352",
+          "control-id": "si-4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-4 (System Monitoring) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4184f123-96f8-5dc3-b08e-a6ba4543f51b",
+          "control-id": "si-4.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-4(2) (Automated Tools and Mechanisms for Real-time Analysis) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "3a01ce86-a28c-52c0-b79d-0bc9a5a46649",
+          "control-id": "si-4.4",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-4(4) (Inbound and Outbound Communications Traffic) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "d65a0959-4334-56ed-a7ea-6414e4f2357e",
+          "control-id": "si-4.5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-4(5) (System-generated Alerts) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "db5abe59-a0c3-5a56-9ef9-ede56d6b91b1",
+          "control-id": "si-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-5 (Security Alerts, Advisories, and Directives) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4d761866-c3aa-52ea-b473-b4df9fc5c4bc",
+          "control-id": "si-7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-7 (Software, Firmware, and Information Integrity) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "36d95bba-743f-5189-afba-e7602bab9341",
+          "control-id": "si-7.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-7(1) (Integrity Checks) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4e0f6f65-b121-57f3-9cb9-7b3392bcb0f6",
+          "control-id": "si-7.7",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-7(7) (Integration of Detection and Response) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2cf7858b-10bb-56e9-be71-1da560d69416",
+          "control-id": "si-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-8 (Spam Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4e039f0d-54df-515c-91a6-05fb96574609",
+          "control-id": "si-8.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-8(2) (Automatic Updates) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "68c069f9-cb63-5b40-8589-ebc65240b54b",
+          "control-id": "si-10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-10 (Information Input Validation) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "47ac6afc-5106-5b28-b4fa-f0d7c81d27e5",
+          "control-id": "si-11",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-11 (Error Handling) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "24c3c862-41c3-5d07-83f9-c180c009b8d4",
+          "control-id": "si-12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-12 (Information Management and Retention) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "e3a30e63-115c-51fd-8c0b-206ceb412ac5",
+          "control-id": "si-16",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SI-16 (Memory Protection) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "e3cb427a-ac32-5d6b-bbc3-1f48d632bd43",
+          "control-id": "sr-1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-1 (Policy and Procedures) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "2f62699d-5c48-543f-8da9-f7aaea9bcf86",
+          "control-id": "sr-2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-2 (Supply Chain Risk Management Plan) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "6b3c8288-edf1-5573-b93f-65130a83a60b",
+          "control-id": "sr-2.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-2(1) (Establish SCRM Team) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "ca48a463-5bf9-5bba-96e9-2c001101a6f6",
+          "control-id": "sr-3",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-3 (Supply Chain Controls and Processes) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "82a4dbbd-3bf9-5086-b914-f400b7d4d820",
+          "control-id": "sr-5",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-5 (Acquisition Strategies, Tools, and Methods) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "0da11487-3973-5c37-a977-ccb36bde4b06",
+          "control-id": "sr-6",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-6 (Supplier Assessments and Reviews) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "e413a719-0884-54de-b239-af2afe552643",
+          "control-id": "sr-8",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-8 (Notification Agreements) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "4e8e6bc8-6b15-5a6d-b538-7c17147020aa",
+          "control-id": "sr-10",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-10 (Inspection of Systems or Components) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "c3e61998-0271-5bb9-9318-24770572875f",
+          "control-id": "sr-11",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-11 (Component Authenticity) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "710d9e38-a41b-5623-a4a5-edf49893184e",
+          "control-id": "sr-11.1",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-11(1) (Anti-counterfeit Training) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "e735ddca-d472-5220-8a5b-94cade15a6c6",
+          "control-id": "sr-11.2",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-11(2) (Configuration Control for Component Service and Repair) \u2014 implementation narrative to be completed by the system owner."
+        },
+        {
+          "uuid": "90e8eac2-3890-5972-b092-8d079c50d095",
+          "control-id": "sr-12",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "not-assessed"
+            }
+          ],
+          "remarks": "SR-12 (Component Disposal) \u2014 implementation narrative to be completed by the system owner."
+        }
+      ]
+    }
+  }
+}

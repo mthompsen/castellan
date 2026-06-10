@@ -19,6 +19,39 @@ from castellan.models import Control, Impact
 _PARAM_INSERT_RE = re.compile(r"\{\{\s*insert:\s*param,\s*(\S+?)\s*\}\}")
 _CONTROL_ID_RE = re.compile(r"^([a-z]{2})-(\d+)(?:\.(\d+))?$")
 
+# The 20 SP 800-53 rev5 control families.
+FAMILY_TITLES: dict[str, str] = {
+    "AC": "Access Control",
+    "AT": "Awareness and Training",
+    "AU": "Audit and Accountability",
+    "CA": "Assessment, Authorization, and Monitoring",
+    "CM": "Configuration Management",
+    "CP": "Contingency Planning",
+    "IA": "Identification and Authentication",
+    "IR": "Incident Response",
+    "MA": "Maintenance",
+    "MP": "Media Protection",
+    "PE": "Physical and Environmental Protection",
+    "PL": "Planning",
+    "PM": "Program Management",
+    "PS": "Personnel Security",
+    "PT": "Personally Identifiable Information Processing and Transparency",
+    "RA": "Risk Assessment",
+    "SA": "System and Services Acquisition",
+    "SC": "System and Communications Protection",
+    "SI": "System and Information Integrity",
+    "SR": "Supply Chain Risk Management",
+}
+
+
+def format_control_id(control_id: str) -> str:
+    """Render a control id in standard notation: ``ac-2`` -> ``AC-2``, ``ac-2.1`` -> ``AC-2(1)``."""
+    match = _CONTROL_ID_RE.match(control_id)
+    if match is None:
+        return control_id.upper()
+    base = f"{match.group(1).upper()}-{match.group(2)}"
+    return f"{base}({match.group(3)})" if match.group(3) else base
+
 
 def _param_placeholder(param: dict[str, Any]) -> str:
     """Render an OSCAL parameter as assessor-style bracketed text."""
