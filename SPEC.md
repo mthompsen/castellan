@@ -21,7 +21,7 @@ OSCAL.
 
 ## 2. Goals
 
-- Demonstrate end-to-end understanding of the RMF lifecycle:
+- Cover the RMF lifecycle end to end:
   **Categorize → Select → Implement → Assess**.
 - Produce artifacts a real assessor would recognize: a FIPS-199
   categorization, a selected 800-53B baseline, an SSP, assessment results,
@@ -325,20 +325,17 @@ castellan checks list                    # list all implemented checks and their
 `assessment_results.json`. The artifact set committed under
 `examples/output/` was generated on a real Ubuntu host (8 pass / 5 fail /
 1 error / 6 not-applicable check outcomes; 11 of 287 moderate-baseline
-controls technically assessable; 6 open POA&M items), so a reviewer sees a
-genuine result without running anything.
+controls technically assessable; 6 open POA&M items), so a genuine result is
+visible without running anything.
 
-## 13. Development approach
+## 13. Provenance and future work
 
-Castellan was built in six gated phases — scaffold + categorization, OSCAL
-catalog resolution, SSP generation, the scanner, mapping + reporting, and
-polish — with `ruff`, `mypy --strict`, and the full test suite required to
-pass before each phase was committed and reviewed. OSCAL filenames and
-document shapes were verified against the live `usnistgov/oscal-content`
-repository (and its published SSP example) rather than assumed, and the
-control ids used in the mapping were validated programmatically against the
-catalog and the moderate baseline before being committed. The committed
-sample output was captured from a real Ubuntu host rather than mocked.
+OSCAL filenames and document shapes were verified against the live
+`usnistgov/oscal-content` repository (and its published SSP example) rather
+than assumed, and the control ids used in the mapping were validated
+programmatically against the catalog and the moderate baseline before being
+committed. The committed sample output was captured from a real Ubuntu host
+rather than mocked.
 
 Potential future work: a FastAPI dashboard, OpenSCAP integration as an
 alternate scan backend, multiple OS profiles, and validation of emitted
@@ -390,8 +387,9 @@ OSCAL against NIST's official validator.
 - **Mirror real OSCAL, don't guess.** Where OSCAL structure was in doubt,
   the implementation fetched and inspected NIST's published examples and
   mirrored their shape.
-- **The repository is the deliverable.** Engineering hygiene — strict
-  typing, fixture-based tests, CI gates, a readable README with a real
-  sample run — is part of the point, not an afterthought. The README is
-  written for a human reviewer: it leads with what RMF is, what the tool
-  does in one sentence, an architecture diagram, and a genuine sample run.
+- **Engineering hygiene is part of the tool.** Strict typing,
+  fixture-based tests, CI gates, and a README with a real sample run are not
+  an afterthought — a compliance tool nobody trusts the build of is a
+  compliance tool nobody trusts. The README leads with what RMF is, what the
+  tool does in one sentence, an architecture diagram, and a genuine sample
+  run.
